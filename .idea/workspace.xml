@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="846543cd-ddf9-418e-bbfc-cb9245461d94" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/recommender-systems.iml" afterPath="$PROJECT_DIR$/.idea/recommender-systems.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charities-toydata.txt" afterPath="$PROJECT_DIR$/charities-toydata.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charities-toyscript.py" afterPath="$PROJECT_DIR$/charities-toyscript.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,9 +27,9 @@
         <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="450">
-              <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <caret line="94" column="22" lean-forward="true" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
               <folding>
-                <element signature="e#260#271#0" expanded="true" />
+                <element signature="e#233#244#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,6 +93,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/equinney/github/recommender-systems/charities-toydata.txt" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -188,7 +184,7 @@
         <state relative-caret-position="270">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#260#271#0" expanded="true" />
+            <element signature="e#233#244#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -206,7 +202,7 @@
         <state relative-caret-position="432">
           <caret line="24" column="19" lean-forward="false" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
           <folding>
-            <element signature="e#260#271#0" expanded="true" />
+            <element signature="e#233#244#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -224,7 +220,7 @@
         <state relative-caret-position="432">
           <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
           <folding>
-            <element signature="e#260#271#0" expanded="true" />
+            <element signature="e#233#244#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -240,9 +236,9 @@
     <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
-          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <caret line="94" column="22" lean-forward="true" selection-start-line="94" selection-start-column="22" selection-end-line="94" selection-end-column="22" />
           <folding>
-            <element signature="e#260#271#0" expanded="true" />
+            <element signature="e#233#244#0" expanded="true" />
           </folding>
         </state>
       </provider>

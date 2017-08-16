@@ -4,8 +4,8 @@
 # A very toy implementation of a content-based recommender system
 #
 # Current fixes:
-# - implement normalization so that similarity scores mean something
-# - fix the for loops so the code is more efficient
+# - improve standardization function for reuse
+# - fix the for loop so code is more efficient
 
 import copy
 import pandas as pd
@@ -29,6 +29,8 @@ def normalize_data(filename):
     Put them in another table equal in size
     Do elementwise computations on the two tables
     (This may not actually avoid the for loop?)
+    
+    Oh and it turns out scikit-learn has functions that do this.
     """
     for column in data.select_dtypes(include=['int', 'float']):
         avg_value = np.mean(data[column])
@@ -70,10 +72,24 @@ def find_best_match(user_vec, item_matrix):
     return best_name, score
 
 
-new_data = normalize_data('charities-toydata.txt')
-charity_data = pd.read_csv('charities-toydata.txt', index_col=0, sep='\s+', comment='#')
-charity_data = charity_data.select_dtypes(include=['int', 'float'])
-charity_data['log_CEO_Salary'] = np.log10(charity_data['CEO_Salary'])
-del charity_data['CEO_Salary']
-my_user = pd.Series(data=[5, 95, 111111])
-print("We recommend: \n", find_best_match(my_user, charity_data))
+def test_find_best_match():
+    """
+    Creating a first test!
+    :return: exception or exit code
+    """
+    # create a data set
+    test_data = pd.read_csv('charities-toydata.txt', index_col=0, sep='\s+', comment='#')
+    # preprocess/clean data set
+    test_data = test_data.select_dtypes(include=['int', 'float'])
+    test_data['log_CEO_Salary'] = np.log10(test_data['CEO_Salary'])
+    del test_data['CEO_Salary']
+    # create a user
+    test_user = pd.Series(data=[5, 95, 111111])
+    # determine expected result
+    expected_result_name = 'Epilepsy Foundation'
+    # run find_best_match()
+    observed_result, score = find_best_match(test_user, test_data)
+    assert observed_result == expected_result_name, "Observed result did not equal expected result."
+
+
+test_find_best_match()
