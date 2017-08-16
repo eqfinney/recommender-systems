@@ -5,9 +5,7 @@
 #
 # Current fixes:
 # - implement normalization so that similarity scores mean something
-# - fix the for loops so that they're more efficient
-# - fix the for loop in find_best_match so that the function always
-#   returns something
+# - fix the for loops so the code is more efficient
 
 import copy
 import pandas as pd
@@ -24,6 +22,14 @@ def normalize_data(filename):
 
     # determines which are the feature vectors
     # for every column that contains integer datatypes, normalize
+
+    """
+    A better way? 
+    Calculate the average value, std in each column
+    Put them in another table equal in size
+    Do elementwise computations on the two tables
+    (This may not actually avoid the for loop?)
+    """
     for column in data.select_dtypes(include=['int', 'float']):
         avg_value = np.mean(data[column])
         std_value = np.std(data[column])
@@ -52,19 +58,22 @@ def find_best_match(user_vec, item_matrix):
     preferences.
     :param user_vec: A vector of preferred user features (series).
     :param item_matrix: A data frame containing item features.
-    :return: The row in the data frame that best matches user
-             preferences.
+    :return: The row in the data frame that best matches user preferences.
     """
-    score = -10.
-    for row in range(len(item_matrix.index)):
-        new_score = calculate_similarity(user_vec, item_matrix.iloc[row])
-        if new_score >= score:
-            score = new_score
-            best = item_matrix.iloc[row]
-    return best, score
+
+    # a smaller similarity score corresponds to a smaller difference from user
+    similarity_scores = item_matrix.apply(lambda x: calculate_similarity(user_vec, x),
+                                          axis=1)
+    score = similarity_scores.min()
+    best_name = similarity_scores.idxmin()
+
+    return best_name, score
+
 
 new_data = normalize_data('charities-toydata.txt')
-data = pd.read_csv('charities-toydata.txt', index_col=0, sep='\s+', comment='#')
-data = data.select_dtypes(include=['int', 'float'])
+charity_data = pd.read_csv('charities-toydata.txt', index_col=0, sep='\s+', comment='#')
+charity_data = charity_data.select_dtypes(include=['int', 'float'])
+charity_data['log_CEO_Salary'] = np.log10(charity_data['CEO_Salary'])
+del charity_data['CEO_Salary']
 my_user = pd.Series(data=[5, 95, 111111])
-print "We recommend: \n", find_best_match(my_user, data)
+print("We recommend: \n", find_best_match(my_user, charity_data))
