@@ -111,31 +111,41 @@ def find_best_match(user_vec, item_matrix):
     # a smaller similarity score corresponds to a smaller difference from user
     similarity_scores = item_matrix.apply(lambda x: calculate_similarity(user_vec, x),
                                           axis=1)
-    score = similarity_scores.min()
     best_name = similarity_scores.idxmin()
 
-    assert isinstance(score, float)
-    return best_name, score
+    return best_name
 
 
-def test_find_best_match():
-    """
-    Creating a first test!
-    :return: exception or exit code
-    """
-    # preprocess/clean data set
-    configuration_file = {'CEO_Salary': np.log10}
-    test_data, avg_table, std_table = normalize_data('charities-toydata.txt',
-                                                     configuration_file, scaling='standardize')
-    # create a user
-    user_vec = [0, 0, 22132891]
-    test_user = [normalize_user(x, (y, z), scaling='standardize')
-                 for x, y, z in (user_vec, avg_table, std_table)]
-    # determine expected result
-    expected_result = 'Cancer Institute'
-    # run find_best_match()
-    observed_result, score = find_best_match(test_user, test_data)
-    assert observed_result == expected_result, \
-        "Observed result " + observed_result + " did not equal expected result " + expected_result
+class TestToyRecommenderSystem(BaseTestCase):
+    pass
 
-test_find_best_match()
+    def test_calculate_similarity(self):
+        observed_score = calculate_similarity(self.vec1, self.vec2)
+        self.assertTrue(observed_score == self.expected_score)
+
+    def test_find_best_match(self):
+        observed_match = find_best_match(test_user, test_data)
+        self.assertTrue(observed_match == self.expected)
+
+
+class BaseTestCase():
+
+    def setUpClass(self):
+        self.user = [5, 78, 523456]
+        # but you also have to test the user, might use a method for that
+        self.database = 'charities-toydata.txt'
+        # yep, and test the configuration file too, run normalize in the setup class
+        self.config_file = {'CEO_Salary': np.log10}
+
+    def tearDownClass(self):
+        self.recommendation = None
+
+    self.expected = 'Animals 4Eva'
+
+
+# preprocess/clean data set
+config_file = {'CEO_Salary': np.log10}
+test_data, avg_table, std_table = normalize_data('charities-toydata.txt',
+                                                 configuration_file, scaling='standardize')
+test_user = [normalize_user(x, (y, z), scaling='standardize')
+             for x, y, z in (user_vec, avg_table, std_table)]
