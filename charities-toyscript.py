@@ -4,85 +4,64 @@
 # A very toy implementation of a content-based recommender system
 #
 # Current fixes:
-# - improve standardization function for reuse
-# - fix the for loop so code is more efficient
-# - do you need to/should you normalize discrete variables
+# - fix the for loop so code is more efficient and/or use generators? Yay playing with new ideas!
 # - make sure the code actually does what it's supposed to do
+# - figure out what makes the classes work the way I want them to, refactor as needed
 
 import copy
 import pandas as pd
 import numpy as np
 
 
-def normalize_data(filename, config={}, scaling='normalize'):
-    """
-    Reads the data set into a Pandas data frame, and normalizes vectors.
-    :return: A Pandas data frame with a set of intact, normalized data.
-    """
-    # so first, run the configuration options
-    data = pd.read_csv(filename, sep='\s+', index_col=0, comment='#')
-    if config != {}:
-        for colname in config:
-            data[colname] = config[colname](data[colname])
-    datanorm = copy.deepcopy(data.select_dtypes(include=['int', 'float']))
+class Data(filename, config_file):
 
-    """
-    A better way? 
-    Calculate the average value, std in each column
-    Put them in another table equal in size
-    Do elementwise computations on the two tables
-    (This may not actually avoid the for loop?)
-    
-    configuration function/class would help generalize kinda
-    """
-    # second, standardize or normalize each of the configured columns
-    if scaling == 'normalize':
-        min_table = []
-        max_table = []
-        for column in data.select_dtypes(include=['int', 'float']):
-            min_value = np.min(data[column])
-            max_value = np.max(data[column])
-            colnorm = (data[column] - min_value) / (max_value - min_value)
-            datanorm[column] = colnorm
-            min_table += min_value
-            max_table += max_value
-        return datanorm, min_table, max_table
-    elif scaling == 'standardize':
-        avg_table = []
-        std_table = []
-        for column in data.select_dtypes(include=['int', 'float']):
-            avg_value = np.mean(data[column])
-            std_value = np.std(data[column])
-            colnorm = (data[column] - avg_value) / std_value
-            datanorm[column] = colnorm
+    def __init__(self):
+        self.data = pd.read_csv(filename, sep='\s+', index_col=0, comment='#')
+        self.configuration = config_file
+
+    def configure(self):
+        for column in self.data:
+            self.data[column] = config_file[column](self.data[column])
+
+    @property
+    def normalize(self):
+        for column in self.data.select_dtypes(include=['int', 'float']):
+            min_value = np.min(self.data[column])
+            max_value = np.max(self.data[column])
+            colnorm = (self.data[column] - min_value) / (max_value - min_value)
+            self.data[column] = colnorm
+            min_list.append(min_value)
+            max_list.append(max_value)
+        return min_list, max_list
+
+    def standardize(self):
+        for column in self.data.select_dtypes(include=['int', 'float']):
+            avg_value = np.mean(self.data[column])
+            std_value = np.std(self.data[column])
+            colnorm = (self.data[column] - avg_value) / std_value
+            self.data[column] = colnorm
             avg_table.append(avg_value)
             std_table.append(std_value)
-        return datanorm, avg_table, std_table
-    else:
-        datanorm = data
-        return datanorm, 1., 1.
+        return avg_list, std_list
 
 
-def normalize_user(user_vec, value_tuple, scaling='normalize'):
-    """
-    Scales the user vector to match with the scaling of the data
-    :param user_vec: A vector of features of the user (series).
-    :param value_tuple: A tuple containing values with which to scale.
-    :param scaling: Which type of scaling (string, Normalize or Standardize or None)
-    :return: Normalize user vector.
-    """
-    if scaling == 'normalize':
-        min_value = value_tuple[0]
-        max_value = value_tuple[1]
-        user_vec = (user_vec - min_value) / (max_value - min_value)
-        return user_vec
-    elif scaling == 'standardize':
-        avg_value = value_tuple[0]
-        std_value = value_tuple[1]
-        user_vec = (user_vec - avg_value) / std_value
-        return user_vec
-    else:
-        return user_vec
+class User(user_vec, config_user):
+
+    def __init__(self):
+        self.vector = user_vec
+        self.configuration = config_user
+
+    def normalize(self, min_list, max_list):
+        for idx, value in enumerate(self.vector):
+            min_value = min_list[idx]
+            max_value = max_list[idx]
+            self.vector[idx] = (value - min_value) / (max_value - min_value)
+
+    def standardize(self, avg_list, std_list):
+        for idx, value in enumerate(self.vector):
+            avg_value = avg_list[idx]
+            std_value = std_list[idx]
+            self.vector[idx] = (value - avg_value) / std_value
 
 
 def calculate_similarity(vec1, vec2):
@@ -116,7 +95,7 @@ def find_best_match(user_vec, item_matrix):
     return best_name
 
 
-class TestToyRecommenderSystem(BaseTestCase):
+class TestToyRecommenderSystem(test_case):
     pass
 
     def test_calculate_similarity(self):
@@ -128,24 +107,5 @@ class TestToyRecommenderSystem(BaseTestCase):
         self.assertTrue(observed_match == self.expected)
 
 
-class BaseTestCase():
-
-    def setUpClass(self):
-        self.user = [5, 78, 523456]
-        # but you also have to test the user, might use a method for that
-        self.database = 'charities-toydata.txt'
-        # yep, and test the configuration file too, run normalize in the setup class
-        self.config_file = {'CEO_Salary': np.log10}
-
-    def tearDownClass(self):
-        self.recommendation = None
-
-    self.expected = 'Animals 4Eva'
-
-
-# preprocess/clean data set
-config_file = {'CEO_Salary': np.log10}
-test_data, avg_table, std_table = normalize_data('charities-toydata.txt',
-                                                 configuration_file, scaling='standardize')
-test_user = [normalize_user(x, (y, z), scaling='standardize')
-             for x, y, z in (user_vec, avg_table, std_table)]
+base_test_case = Data('charities_toydata.txt', {'CEO_Salary': np.log10})
+user_test_case = User([5, 78, 523456], {})
