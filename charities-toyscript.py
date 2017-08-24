@@ -13,17 +13,23 @@ import pandas as pd
 import numpy as np
 
 
-class Data(filename, config_file):
+class Data:
 
-    def __init__(self):
-        self.data = pd.read_csv(filename, sep='\s+', index_col=0, comment='#')
+    def __init__(self, filename, config_file=None):
+        if filename.split('.')[-1] == '.json':
+            # mkay so my big problem is that the file isn't actually JSON
+            # each request I make to the server gets a JSON file, but they don't combine just by appending
+            # I could do a Python-level find-and-replace, make all '][' become ', ' instead.
+            # and there are likely other, even faster, methods
+            self.data = json.load(filename)
+        else:
+            self.data = pd.read_csv(filename, sep='\s+', index_col=0, comment='#')
         self.configuration = config_file
 
     def configure(self):
         for column in self.data:
             self.data[column] = config_file[column](self.data[column])
 
-    @property
     def normalize(self):
         for column in self.data.select_dtypes(include=['int', 'float']):
             min_value = np.min(self.data[column])
@@ -45,9 +51,9 @@ class Data(filename, config_file):
         return avg_list, std_list
 
 
-class User(user_vec, config_user):
+class User:
 
-    def __init__(self):
+    def __init__(self, user_vec, config_user):
         self.vector = user_vec
         self.configuration = config_user
 
@@ -95,17 +101,23 @@ def find_best_match(user_vec, item_matrix):
     return best_name
 
 
-class TestToyRecommenderSystem(test_case):
+class TestToyRecommenderSystem:
     pass
 
-    def test_calculate_similarity(self):
-        observed_score = calculate_similarity(self.vec1, self.vec2)
-        self.assertTrue(observed_score == self.expected_score)
+    def __init__(self, data_vector, user_vector, expected_result):
+        self.vec1 = data_vector
+        self.vec2 = user_vector
+        self.expected = expected_result
 
-    def test_find_best_match(self):
+    def test_calculate_similarity(self, vec1, vec2):
+        observed_score = calculate_similarity(self.vec1, self.vec2)
+
+    def test_find_best_match(self, test_case):
         observed_match = find_best_match(test_user, test_data)
         self.assertTrue(observed_match == self.expected)
 
 
-base_test_case = Data('charities_toydata.txt', {'CEO_Salary': np.log10})
-user_test_case = User([5, 78, 523456], {})
+#base_test_case = Data('cn.json', {'CEO_Salary': np.log10})
+#user_test_case = User([5, 78, 523456], {})
+
+base_test_case = Data('cn.json')

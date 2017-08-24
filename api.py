@@ -10,14 +10,12 @@ to fix:
   - unittests: https://docs.python.org/3/library/unittest.html
   - unittest mocks: https://docs.python.org/3/library/unittest.mock.html
   - doctests: https://docs.python.org/2/library/doctest.html
-- Actually test the JSON dumping function
-- Refactor the code so it's a little prettier and neater
-- Check to make sure all the data are being requested successfully
 """
 
 import requests
 import json
 import time
+import string
 
 
 def http_request(url, params={}):
@@ -57,11 +55,29 @@ def http_request_generator(url, params={}, new_params={}):
         status_code, response = http_request(url, params)
         print(' '.join([str(status_code), "I'm here!"]))
         # make sure the response isn't failing weirdly
-        assert status_code == 200, "There is a status code failure".join(str(status_code))
+        assert status_code == 200, ': '.join(str(["There is a status code failure", status_code]))
         # give the response back to the function
         yield response
         # now update parameters
         params['pageNum'], new_params['pageNum'] = new_params['pageNum'], new_params['pageNum'] + 1
+
+
+def find_and_replace(filename, to_find='][', to_replace=', '):
+    """
+    Finds and replaces strings to turn the pseudo-JSON into an actual JSON.
+    :param filename: the name of the possible JSON
+    :param to_find: the string to find
+    :param to_replace: the string to replace
+    :return: an actual JSON file
+    """
+    with open(filename, 'r+') as f:
+        d = f.readlines()
+        f.seek(0)
+        for line in d:
+            newline = line.replace(to_find, to_replace)
+            assert to_find not in newline
+            f.write(newline)
+        f.close()
 
 
 def complete_http_request_generators(filename, url, params={}):
@@ -79,7 +95,7 @@ def complete_http_request_generators(filename, url, params={}):
     gen = http_request_generator(url, params, new_params)
 
     # keep requesting pages and write results to file
-    while iter < 100:
+    while iter < 10:
         print(' '.join(["Iteration number is:", str(iter)]))
         response = next(gen)
         with open(filename, 'a') as f:
@@ -90,6 +106,7 @@ def complete_http_request_generators(filename, url, params={}):
         iter += 1
 
     # should occur after all the pages have been downloaded
+    find_and_replace('cn.json', '][', ', ')
     print(' '.join(["Finished! Check results in", filename]))
 
 
@@ -105,6 +122,6 @@ def test_http_request():
 
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
-    #test_http_request()
+    #import doctest
+    #doctest.testmod()
+    test_http_request()
