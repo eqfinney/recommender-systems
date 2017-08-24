@@ -16,6 +16,7 @@ import requests
 import json
 import time
 import string
+import difflib
 
 
 def http_request(url, params={}):
@@ -55,7 +56,7 @@ def http_request_generator(url, params={}, new_params={}):
         status_code, response = http_request(url, params)
         print(' '.join([str(status_code), "I'm here!"]))
         # make sure the response isn't failing weirdly
-        assert status_code == 200, ': '.join(str(["There is a status code failure", status_code]))
+        assert status_code == 200, ': '.join(["There is a status code failure", str(status_code)])
         # give the response back to the function
         yield response
         # now update parameters
@@ -115,7 +116,14 @@ def test_http_request():
     Tests the HTTP request function
     :return:
     """
-    parameters = {'app_key': '7bbd24b88b0526256feaa4c3cf00ba8f', 'app_id': '1e71a304', 'pageSize': 1000, 'pageNum': 1}
+    with open('cn.keys', 'r') as f:
+        d = f.readlines()
+        api_id = d[0].strip()
+        print(api_id)
+        api_key = d[1].strip()
+        print(api_key)
+
+    parameters = {'app_key': api_key, 'app_id': api_id, 'pageSize': 1000, 'pageNum': 1}
     complete_http_request_generators('cn.json', "https://api.data.charitynavigator.org/Organizations/",
                                      params=parameters)
     return
