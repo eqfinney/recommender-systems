@@ -4,13 +4,6 @@
 # Trying to figure out how http requests work!!!!!!!!!!!!
 # Also experimenting with test-driven development
 
-"""
-to fix:
-- I still need to read up on different kinds of testing, when to use, etc, and implement
-  - unittests: https://docs.python.org/3/library/unittest.html
-  - unittest mocks: https://docs.python.org/3/library/unittest.mock.html
-  - doctests: https://docs.python.org/2/library/doctest.html
-"""
 
 import requests
 import json

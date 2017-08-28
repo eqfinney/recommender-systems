@@ -4,9 +4,9 @@
 # A very toy implementation of a content-based recommender system
 #
 # Current fixes:
-# - fix the for loop so code is more efficient and/or use generators? Yay playing with new ideas!
 # - make sure the code actually does what it's supposed to do
 # - figure out what makes the classes work the way I want them to, refactor as needed
+# - we don't want to see the whole vector as a recommendation; fix find_best_match() accordingly
 
 import copy
 import pandas as pd
@@ -76,6 +76,8 @@ def calculate_similarity(vec1, vec2):
     :param vec1: A vector of features in the data set (series).
     :param vec2: Another vector of features in the data set (series).
     :return: The cosine distance, a float.
+    >>> calculate_similarity([5,78,523456], [5,78,523456])
+    1
     """
     vec1 = np.asarray(vec1)
     vec2 = np.asarray(vec2)
@@ -91,6 +93,7 @@ def find_best_match(user_vec, item_matrix):
     :param user_vec: A vector of preferred user features (series).
     :param item_matrix: A data frame containing item features.
     :return: The row in the data frame that best matches user preferences.
+    >>> find_best_match([5,72,5999999], Data('charities_toydata.txt').data)
     """
 
     # a smaller similarity score corresponds to a smaller difference from user
@@ -99,25 +102,3 @@ def find_best_match(user_vec, item_matrix):
     best_name = similarity_scores.idxmin()
 
     return best_name
-
-
-class TestToyRecommenderSystem:
-    pass
-
-    def __init__(self, data_vector, user_vector, expected_result):
-        self.vec1 = data_vector
-        self.vec2 = user_vector
-        self.expected = expected_result
-
-    def test_calculate_similarity(self, vec1, vec2):
-        observed_score = calculate_similarity(self.vec1, self.vec2)
-
-    def test_find_best_match(self, test_case):
-        observed_match = find_best_match(test_user, test_data)
-        self.assertTrue(observed_match == self.expected)
-
-
-#base_test_case = Data('cn.json', {'CEO_Salary': np.log10})
-#user_test_case = User([5, 78, 523456], {})
-
-base_test_case = Data('cn.json')
