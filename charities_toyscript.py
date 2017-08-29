@@ -4,9 +4,12 @@
 # A very toy implementation of a content-based recommender system
 #
 # Current fixes:
-# - make sure the code actually does what it's supposed to do
+# - make sure the find_best_match code works the way it's supposed to
 # - figure out what makes the classes work the way I want them to, refactor as needed
 # - we don't want to see the whole vector as a recommendation; fix find_best_match() accordingly
+# - write tests for every part of this code, probably using pytest
+
+__all__ = ['Data', 'User', 'calculate_similarity', 'find_best_match']
 
 import copy
 import pandas as pd

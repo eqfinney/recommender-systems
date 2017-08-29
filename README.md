@@ -1,1 +1,1 @@
-This is my exploration of recommender systems at RC. Includes several toy examples and a less toy example using Charity Navigator data.
+This is my exploration of recommender systems at RC. Includes several toy examples and a less toy example using Charity Navigator data. It also includes my experimentation with several Python testing frameworks, as seen in the directory `tests`.
