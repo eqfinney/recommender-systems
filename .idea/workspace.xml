@@ -4,11 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/api.py" description="parameters = {'app_key': api_key, 'app_id': api_id..." line="125" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="846543cd-ddf9-418e-bbfc-cb9245461d94" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charities_toyscript.py" afterPath="$PROJECT_DIR$/charities_toyscript.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/test_hypothesis.py" afterPath="$PROJECT_DIR$/tests/test_hypothesis.py" />
-    </list>
+    <list default="true" id="846543cd-ddf9-418e-bbfc-cb9245461d94" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,10 +27,28 @@
       <file leaf-file-name="charities_toyscript.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/charities_toyscript.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="78" column="42" lean-forward="true" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
+            <state relative-caret-position="1368">
+              <caret line="80" column="42" lean-forward="false" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
               <folding>
-                <element signature="e#459#470#0" expanded="true" />
+                <marker date="1504025176813" expanded="true" signature="459:580" ph="import ..." />
+                <marker date="1504025176813" expanded="true" signature="594:2196" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="647:1213" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="694:1075" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="707:1031" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="1239:1343" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="1369:1774" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="1442:1740" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="1802:2196" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="1875:2162" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="2210:2816" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="2258:2330" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="2376:2579" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="2426:2579" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="2627:2816" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="2677:2816" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="2856:3360" ph="..." />
+                <marker date="1504025176813" expanded="true" signature="2861:3170" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1504025176813" expanded="true" signature="3411:3788" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
               </folding>
             </state>
           </provider>
@@ -43,8 +57,8 @@
       <file leaf-file-name="test_pytest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/test_pytest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="306">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="e#63#76#0" expanded="true" />
               </folding>
@@ -65,7 +79,7 @@
       <file leaf-file-name="api.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
+            <state relative-caret-position="396">
               <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="e#147#162#0" expanded="true" />
@@ -108,9 +122,9 @@
         <option value="$PROJECT_DIR$/tests/test_unittest.py" />
         <option value="$PROJECT_DIR$/tests/test_doctest.txt" />
         <option value="$PROJECT_DIR$/tests/test_doctest.py" />
-        <option value="$PROJECT_DIR$/tests/test_pytest.py" />
         <option value="$PROJECT_DIR$/charities_toyscript.py" />
         <option value="$PROJECT_DIR$/tests/test_hypothesis.py" />
+        <option value="$PROJECT_DIR$/tests/test_pytest.py" />
       </list>
     </option>
   </component>
@@ -124,7 +138,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -137,21 +151,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="recommender-systems" type="b2602c69:ProjectViewProjectNode" />
-              <item name="recommender-systems" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -277,7 +277,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="75" y="44" width="1857" height="1092" extended-state="6" />
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24528302" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -311,20 +311,77 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/charities-toydata.txt">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="9" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/charities_toyscript.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1404">
+          <caret line="78" column="42" lean-forward="true" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
+          <folding>
+            <marker date="1504025176813" expanded="true" signature="459:580" ph="import ..." />
+            <marker date="1504025176813" expanded="true" signature="594:2196" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="647:1213" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="694:1075" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="707:1031" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="1239:1343" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="1369:1774" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="1442:1740" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="1802:2196" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="1875:2162" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2210:2816" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2258:2330" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2376:2579" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2426:2579" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2627:2816" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2677:2816" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2856:3360" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2861:3170" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1504025176813" expanded="true" signature="3411:3788" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_hypothesis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="e#147#162#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/test_pytest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="e#63#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/charities-toydata.txt">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="74" lean-forward="false" selection-start-line="9" selection-start-column="74" selection-end-line="9" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1782">
-          <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/charities-toyscript.py" />
     <entry file="file://$PROJECT_DIR$/api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
@@ -343,14 +400,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="26" lean-forward="true" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/charities-toyscript.py" />
     <entry file="file://$PROJECT_DIR$/charities-toydata.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -359,14 +409,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/charities-toyscript.py" />
     <entry file="file://$PROJECT_DIR$/cn1.json" />
     <entry file="file://$PROJECT_DIR$/api.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -386,14 +429,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/charities-toyscript.py" />
     <entry file="file://$PROJECT_DIR$/cn1.json" />
     <entry file="file://$PROJECT_DIR$/api.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -423,14 +459,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2718">
-          <caret line="151" column="0" lean-forward="true" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/charities-toyscript.py" />
     <entry file="file://$PROJECT_DIR$/charities-toydata.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -439,14 +468,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2394">
-          <caret line="133" column="35" lean-forward="true" selection-start-line="133" selection-start-column="35" selection-end-line="133" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/charities-toyscript.py" />
     <entry file="file://$PROJECT_DIR$/api.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -475,14 +497,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2232">
-          <caret line="124" column="7" lean-forward="true" selection-start-line="124" selection-start-column="7" selection-end-line="124" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/charities-toyscript.py" />
     <entry file="file://$PROJECT_DIR$/charities-toydata.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -491,14 +506,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/charities-toyscript.py" />
     <entry file="file://$PROJECT_DIR$/charities-toydata.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -507,14 +515,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="19" lean-forward="false" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/charities-toyscript.py" />
     <entry file="file://$PROJECT_DIR$/charities-toydata.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -523,14 +524,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/charities-toyscript.py" />
     <entry file="file://$PROJECT_DIR$/api.py/api.py" />
     <entry file="file://$PROJECT_DIR$/cn1.json" />
     <entry file="file://$PROJECT_DIR$/cn.json">
@@ -540,61 +534,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_doctest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_hypothesis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_pytest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_unittest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/charities-toyscript.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test_doctest.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/test_doctest.py" />
+    <entry file="file://$PROJECT_DIR$/test_hypothesis.py" />
+    <entry file="file://$PROJECT_DIR$/test_pytest.py" />
+    <entry file="file://$PROJECT_DIR$/test_unittest.py" />
+    <entry file="file://$PROJECT_DIR$/charities-toyscript.py" />
+    <entry file="file://$PROJECT_DIR$/tests/test_doctest.txt" />
     <entry file="file://$PROJECT_DIR$/tests/test_unittest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="14" column="25" lean-forward="false" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="40" />
-          <folding>
-            <element signature="e#65#80#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -602,9 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="17" column="3" lean-forward="false" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-          <folding>
-            <element signature="e#64#78#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -618,7 +564,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
+        <state relative-caret-position="396">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="e#147#162#0" expanded="true" />
@@ -628,10 +574,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/charities_toyscript.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="78" column="42" lean-forward="true" selection-start-line="78" selection-start-column="42" selection-end-line="78" selection-end-column="42" />
+        <state relative-caret-position="1368">
+          <caret line="80" column="42" lean-forward="false" selection-start-line="80" selection-start-column="42" selection-end-line="80" selection-end-column="42" />
           <folding>
-            <element signature="e#459#470#0" expanded="true" />
+            <marker date="1504025176813" expanded="true" signature="459:580" ph="import ..." />
+            <marker date="1504025176813" expanded="true" signature="594:2196" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="647:1213" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="694:1075" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="707:1031" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="1239:1343" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="1369:1774" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="1442:1740" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="1802:2196" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="1875:2162" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2210:2816" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2258:2330" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2376:2579" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2426:2579" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2627:2816" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2677:2816" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2856:3360" ph="..." />
+            <marker date="1504025176813" expanded="true" signature="2861:3170" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1504025176813" expanded="true" signature="3411:3788" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
           </folding>
         </state>
       </provider>
@@ -646,8 +610,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/test_pytest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="e#63#76#0" expanded="true" />
           </folding>

@@ -1,3 +1,4 @@
 {
+  "tests/test_hypothesis.py::test_find_best_value": true,
   "tests/test_pytest.py::test_find_best_value": true
 }
