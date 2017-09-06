@@ -4,36 +4,56 @@
 # A very toy implementation of a content-based recommender system
 #
 # Current fixes:
-# - make sure the find_best_match code works the way it's supposed to
-# - figure out what makes the classes work the way I want them to, refactor as needed
+# - normalization isn't working, need to fix that
+# - figure out how to deal with vectors that have very large differences in values
 # - we don't want to see the whole vector as a recommendation; fix find_best_match() accordingly
 # - write tests for every part of this code, probably using pytest
-
-__all__ = ['Data', 'User', 'calculate_similarity', 'find_best_match']
 
 import copy
 import pandas as pd
 import numpy as np
 
+try:
+    import psyco
+    psyco.full()
+except ImportError:
+    pass
+
+__all__ = ['Data', 'User', 'calculate_similarity', 'find_best_match']
+
+
+def test_decorator(function):
+    """
+    Testing a decorator that prints all args and kwargs for a function.
+    """
+
+    def function_wrapper(*args, **kwargs):
+        for value in args, kwargs:
+            print(value)
+        return function(*args, **kwargs)
+
+    return function_wrapper
+
 
 class Data:
 
     def __init__(self, filename, config_file=None):
+
         if filename.split('.')[-1] == '.json':
-            # mkay so my big problem is that the file isn't actually JSON
-            # each request I make to the server gets a JSON file, but they don't combine just by appending
-            # I could do a Python-level find-and-replace, make all '][' become ', ' instead.
-            # and there are likely other, even faster, methods
-            self.data = json.load(filename)
+            self.data = pd.DataFrame(json.load(filename))
         else:
             self.data = pd.read_csv(filename, sep='\s+', index_col=0, comment='#')
-        self.configuration = config_file
+        if config_file:
+            self.configure()
+            self.configuration = config_file
 
     def configure(self):
         for column in self.data:
             self.data[column] = config_file[column](self.data[column])
 
     def normalize(self):
+        min_list = []
+        max_list = []
         for column in self.data.select_dtypes(include=['int', 'float']):
             min_value = np.min(self.data[column])
             max_value = np.max(self.data[column])
@@ -41,17 +61,19 @@ class Data:
             self.data[column] = colnorm
             min_list.append(min_value)
             max_list.append(max_value)
-        return min_list, max_list
+        return self, min_list, max_list
 
     def standardize(self):
+        avg_list = []
+        std_list = []
         for column in self.data.select_dtypes(include=['int', 'float']):
             avg_value = np.mean(self.data[column])
             std_value = np.std(self.data[column])
             colnorm = (self.data[column] - avg_value) / std_value
             self.data[column] = colnorm
-            avg_table.append(avg_value)
-            std_table.append(std_value)
-        return avg_list, std_list
+            avg_list.append(avg_value)
+            std_list.append(std_value)
+        return self, avg_list, std_list
 
 
 class User:
@@ -73,6 +95,7 @@ class User:
             self.vector[idx] = (value - avg_value) / std_value
 
 
+#@test_decorator
 def calculate_similarity(vec1, vec2):
     """
     Determines the cosine distance between two vectors.
@@ -89,6 +112,7 @@ def calculate_similarity(vec1, vec2):
     return dot_product/norm_product
 
 
+#@test_decorator
 def find_best_match(user_vec, item_matrix):
     """
     Determines the row in the data set that best matches the user's
@@ -100,8 +124,32 @@ def find_best_match(user_vec, item_matrix):
     """
 
     # a smaller similarity score corresponds to a smaller difference from user
-    similarity_scores = item_matrix.apply(lambda x: calculate_similarity(user_vec, x),
-                                          axis=1)
+    similarity_scores = item_matrix.data.apply(lambda x: calculate_similarity(user_vec, x), axis=1)
+    print(similarity_scores)
     best_name = similarity_scores.idxmin()
 
     return best_name
+
+
+def user_preference(charity_list, database):
+    """
+    Determines the user's preference vector, based on other charities the user prefers.
+    :param charity_list: a list of charities the user likes, list of strings.
+                         (future: add weights)
+    :param database: the data from which to obtain the user's preferred charity
+    :return: user_preference, a vector that conveys the user's interests
+    """
+
+    user_vec = np.zeros(len(database.data.T[charity_list[0]]))
+    for charity in charity_list:
+        new_charity = np.array(database.data.T[charity])
+        user_vec = np.add(user_vec, new_charity)
+
+    user_vec = user_vec/len(charity_list)
+
+    return user_vec
+
+
+if __name__ == '__main__':
+    CharityData = Data('cn.json')
+    CharityData.normalize()

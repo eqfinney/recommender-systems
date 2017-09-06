@@ -8,3 +8,4 @@ Charity_Name            Transparency_Score   Percent_to_Services    CEO_Salary
 "Cancer Institute"	    5	                 97	                    183111
 "Dog Rescue Fund"	    4	                 89	                    324122
 "Epilepsy Foundation"	3	                 91	                    230948
+"Friends of Foxes"      4                    85                     444444
