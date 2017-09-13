@@ -7,6 +7,7 @@ import pytest
 import pandas as pd
 import numpy as np
 import charities_toyscript as ct
+import charities_realdeal as cr
 
 
 def test_calculate_similarity_samevec():
@@ -73,3 +74,4 @@ def test_user_standardize_norm(user=ct.User([5, 65, 100000])):
 
 # test_data_configuration
 # test_user_configuration
+

@@ -23,10 +23,6 @@ def http_request(url, params={}):
     >>> http_request("https://projects.propublica.org/nonprofits/api/v2/search.json")[0]
     <class 'int'>
     200
-    >>> parameters = {'app_key': '7bbd24b88b0526256feaa4c3cf00ba8f', 'app_id': '1e71a304', 'format': 'json', 'pageNum': 7}
-    >>> http_request("https://api.data.charitynavigator.org/api/v1/search", params=parameters)[0]
-    <class 'int'>
-    200
 
     :param params: the parameters of the http request, dictionary
     :return: response.status code, int, which tells you if the request succeeded
@@ -111,9 +107,7 @@ def test_http_request():
     with open('cn.keys', 'r') as f:
         d = f.readlines()
         api_id = d[0].strip()
-        print(api_id)
         api_key = d[1].strip()
-        print(api_key)
 
     parameters = {'app_key': api_key, 'app_id': api_id, 'pageSize': 1000, 'pageNum': 1}
     complete_http_request_generators('cn.json', "https://api.data.charitynavigator.org/Organizations/",
