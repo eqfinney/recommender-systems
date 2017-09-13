@@ -4,12 +4,8 @@
 # A very toy implementation of a content-based recommender system
 #
 # Current fixes:
-# - normalization isn't working, need to fix that
-# - figure out how to deal with vectors that have very large differences in values
-# - we don't want to see the whole vector as a recommendation; fix find_best_match() accordingly
 # - write tests for every part of this code, probably using pytest
 
-import copy
 import pandas as pd
 import numpy as np
 
@@ -78,57 +74,29 @@ class Data:
 
 class User:
 
-    def __init__(self, user_vec, config_user):
-        self.vector = user_vec
-        self.configuration = config_user
+    def __init__(self, user_vec, config_user=None):
+        self.vector = np.array(user_vec, dtype=float)
+        if config_user:
+            self.configure()
+            self.configuration = config_user
 
     def normalize(self, min_list, max_list):
         for idx, value in enumerate(self.vector):
             min_value = min_list[idx]
             max_value = max_list[idx]
-            self.vector[idx] = (value - min_value) / (max_value - min_value)
+            new_value = (value - min_value) / (max_value - min_value)
+            self.vector[idx] = new_value
+
+        return self
 
     def standardize(self, avg_list, std_list):
         for idx, value in enumerate(self.vector):
             avg_value = avg_list[idx]
             std_value = std_list[idx]
-            self.vector[idx] = (value - avg_value) / std_value
+            new_value = (value - avg_value) / std_value
+            self.vector[idx] = new_value
 
-
-#@test_decorator
-def calculate_similarity(vec1, vec2):
-    """
-    Determines the cosine distance between two vectors.
-    :param vec1: A vector of features in the data set (series).
-    :param vec2: Another vector of features in the data set (series).
-    :return: The cosine distance, a float.
-    >>> calculate_similarity([5,78,523456], [5,78,523456])
-    1
-    """
-    vec1 = np.asarray(vec1)
-    vec2 = np.asarray(vec2)
-    dot_product = np.dot(vec1, vec2)
-    norm_product = np.linalg.norm(vec1)*np.linalg.norm(vec2)
-    return dot_product/norm_product
-
-
-#@test_decorator
-def find_best_match(user_vec, item_matrix):
-    """
-    Determines the row in the data set that best matches the user's
-    preferences.
-    :param user_vec: A vector of preferred user features (series).
-    :param item_matrix: A data frame containing item features.
-    :return: The row in the data frame that best matches user preferences.
-    >>> find_best_match([5,72,5999999], Data('charities_toydata.txt').data)
-    """
-
-    # a smaller similarity score corresponds to a smaller difference from user
-    similarity_scores = item_matrix.data.apply(lambda x: calculate_similarity(user_vec, x), axis=1)
-    print(similarity_scores)
-    best_name = similarity_scores.idxmin()
-
-    return best_name
+        return self
 
 
 def user_preference(charity_list, database):
@@ -145,11 +113,49 @@ def user_preference(charity_list, database):
         new_charity = np.array(database.data.T[charity])
         user_vec = np.add(user_vec, new_charity)
 
-    user_vec = user_vec/len(charity_list)
+    user_vec = user_vec / len(charity_list)
 
     return user_vec
 
 
+def calculate_similarity(vec1, vec2):
+    """
+    Determines the cosine distance between two vectors.
+    :param vec1: A vector of features in the data set (series).
+    :param vec2: Another vector of features in the data set (series).
+    :return: The cosine distance, a float.
+    >>> calculate_similarity([5,78,523456], [5,78,523456])
+    1.0
+    >>> calculate_similarity([1, 1, 1], [0, 1, 0])
+    0.57735026918962584
+    >>> calculate_similarity([5,70,523456], [5,78,523456])
+    0.99999999988321431
+    """
+    vec1 = np.asarray(vec1)
+    vec2 = np.asarray(vec2)
+    dot_product = np.dot(vec1, vec2)
+    norm_product = np.linalg.norm(vec1)*np.linalg.norm(vec2)
+    return dot_product/norm_product
+
+
+def find_best_match(user_vec, item_matrix):
+    """
+    Determines the row in the data set that best matches the user's
+    preferences.
+    :param user_vec: A vector of preferred user features (series).
+    :param item_matrix: A data frame containing item features.
+    :return: The row in the data frame that best matches user preferences.
+    >>> find_best_match([0, 1, 0], Data('charities_toydata.txt'))
+    Cancer Institute
+    """
+
+    # a smaller similarity score corresponds to a smaller difference from user
+    similarity_scores = item_matrix.data.apply(lambda x: calculate_similarity(user_vec, x), axis=1)
+    best_name = similarity_scores.idxmax()
+
+    return best_name
+
+
 if __name__ == '__main__':
-    CharityData = Data('cn.json')
-    CharityData.normalize()
+    import doctest
+    doctest.testmod()

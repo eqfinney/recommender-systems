@@ -16,9 +16,9 @@ class TestToyRecommenderSystem(unittest.TestCase):
         self.test_data = ct.Data('charities-toydata.txt')
 
     def test_calculate_similarity(self):
-        observed_score = ct.calculate_similarity(self.test_user, self.test_data.data.iloc[0])
-        self.assertAlmostEqual(observed_score, 0.5, "failure in test_calculate_similarity()")
+        observed_score = ct.calculate_similarity([5, 72, 599999], [5, 72, 599999])
+        self.assertAlmostEqual(observed_score, 1.)
 
     def test_find_best_match(self):
-        observed_match = ct.find_best_match(self.test_user, self.test_data.data)
-        self.assertEquals(observed_match, "Animals 4Eva", "failure in find_best_match()")
+        observed_match = ct.find_best_match([5, 78, 523456], ct.Data('charities-toydata.txt'))
+        self.assertEquals(observed_match, "Animals 4Eva")

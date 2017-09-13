@@ -1,5 +1,7 @@
 {
   "tests/test_hypothesis.py::test_find_best_value": true,
   "tests/test_pytest.py::test_constructor": true,
-  "tests/test_pytest.py::test_find_best_value": true
+  "tests/test_pytest.py::test_data_normalize_norm": true,
+  "tests/test_pytest.py::test_data_standardize_norm": true,
+  "tests/test_unittest.py::TestToyRecommenderSystem::test_find_best_match": true
 }

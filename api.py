@@ -47,7 +47,6 @@ def http_request_generator(url, params={}, new_params={}):
     while True:
         # make the HTTP request
         status_code, response = http_request(url, params)
-        print(' '.join([str(status_code), "I'm here!"]))
         # make sure the response isn't failing weirdly
         assert status_code == 200, ': '.join(["There is a status code failure", str(status_code)])
         # give the response back to the function
