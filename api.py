@@ -5,41 +5,39 @@
 # Also experimenting with test-driven development
 
 
-import requests
 import json
 import time
 import string
 import difflib
+import requests
 
 
-def http_request(url, params={}):
+def http_request(url, params=None):
     """
     Pings the server with an HTTP request, records the status code, and unpacks data
     :param url: server from which to request data
-
-    >>> http_request("http://api.open-notify.org/astros.json")[0]
-    <class 'int'>
-    200
-    >>> http_request("https://projects.propublica.org/nonprofits/api/v2/search.json")[0]
-    <class 'int'>
-    200
-
     :param params: the parameters of the http request, dictionary
     :return: response.status code, int, which tells you if the request succeeded
              response, which should be in the form of a requests response
     """
+    if params == None:
+        params = {}
     response = requests.get(url, params)
     return response.status_code, response
 
 
-def http_request_generator(url, params={}, new_params={}):
+def http_request_generator(url, params=None, new_params=None):
     """
-    Completes an HTTP request as a generator. WHO KNOWS IF THIS WILL WORK.
+    Completes an HTTP request as a generator.
     :param url: the base URL from which to make the HTTP request.
     :param params: the parameters with which to modify the HTTP request
     :param new_params: the updated parameters with which to modify the HTTP request
     :return: a generator object that, when next() is called on it, gives a new page of data
     """
+    if params == None:
+        params = {}
+    if new_params == None:
+        new_params = {}
     while True:
         # make the HTTP request
         status_code, response = http_request(url, params)
@@ -69,7 +67,7 @@ def find_and_replace(filename, to_find='][', to_replace=', '):
         f.close()
 
 
-def complete_http_request_generators(filename, url, params={}):
+def complete_http_request_generators(filename, url, params=None):
     """
     The main function, dumps all the pages of a successful HTTP request into a JSON file
     :param filename: the name of the file into which to dump the JSON material
@@ -77,6 +75,9 @@ def complete_http_request_generators(filename, url, params={}):
     :param params: the parameters with which to modify the HTTP request
     :return: Nothing, but should produce a JSON file
     """
+    if params = None:
+        params = {}
+
     iter = 0
     params['pageNum'] = 0
     new_params = params
@@ -102,7 +103,7 @@ def complete_http_request_generators(filename, url, params={}):
 def test_http_request():
     """
     Tests the HTTP request function
-    :return:
+    :return: nothing, but should write the data from the HTTP request to file
     """
     with open('cn.keys', 'r') as f:
         d = f.readlines()
@@ -116,6 +117,4 @@ def test_http_request():
 
 
 if __name__ == "__main__":
-    #import doctest
-    #doctest.testmod()
     test_http_request()

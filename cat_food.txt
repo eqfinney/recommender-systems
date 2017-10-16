@@ -1,0 +1,9 @@
+# An example cat food data set, for the blog
+
+Cat_Food                            YummyTM     FeedtheFeline   Chicken     Beef    Pork    Salmon  Pate(y/n)
+"YummyTM Chicken"	                1           0               1           0       0       0       1
+"YummyTM Salmon"	                1           0               0           0       0       1       0
+"YummyTM Beef and Pork"             1           0               0           1       1       0       1
+"Feed the Feline Chicken"           0           1               1           0       0       0       0
+"Feed the Feline Beef"              0           1               0           1       0       0       0
+"Feed the Feline Chicken and Beef"  0           1               1           1       0       0       0

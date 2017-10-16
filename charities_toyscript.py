@@ -147,6 +147,8 @@ def find_best_match(user_vec, item_matrix):
     :return: The row in the data frame that best matches user preferences.
     >>> find_best_match([0, 1, 0], Data('charities_toydata.txt'))
     Cancer Institute
+    >>> find_best_match([0.5,0.5,1,0.5,0.5,0.5,0], Data('cat_food.txt'))
+    Feed the Feline Chicken
     """
 
     # a smaller similarity score corresponds to a smaller difference from user
