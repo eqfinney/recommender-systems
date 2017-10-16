@@ -1,8 +1,0 @@
-# Ignore file 'cn.json'
-cn.json
-cn.keys
-__pycache__/
-.idea/
-.cache/
-.ipynb_checkpoints/
-.gitignore
