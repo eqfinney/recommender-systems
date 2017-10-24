@@ -1,14 +1,17 @@
 #
 # tests the api.py module
 # author: Emily Quinn Finney
-# 
+#
+
+# TODO: add tests for other functions, cause there's no unit testing here
+# might need to include patches with pytest mock objects
 
 import api
 
-def test_http_request(filename='cn.json',
-                      url="https://api.data.charitynavigator.org/Organizations/"):
+def test_complete_http_request_generators(filename='cn.json',
+                                          url="https://api.data.charitynavigator.org/Organizations/"):
     """
-    Tests the HTTP request function
+    Tests the main function
     :return: nothing, but should write the data from the HTTP request to file
     """
     with open('cn.keys', 'r') as f:
