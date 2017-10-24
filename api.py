@@ -75,7 +75,7 @@ def complete_http_request_generators(filename, url, params=None):
     :param params: the parameters with which to modify the HTTP request
     :return: Nothing, but should produce a JSON file
     """
-    if params = None:
+    if params == None:
         params = {}
 
     iter = 0
@@ -98,23 +98,3 @@ def complete_http_request_generators(filename, url, params=None):
     # should occur after all the pages have been downloaded
     find_and_replace('cn.json', '][', ', ')
     print(' '.join(["Finished! Check results in", filename]))
-
-
-def test_http_request():
-    """
-    Tests the HTTP request function
-    :return: nothing, but should write the data from the HTTP request to file
-    """
-    with open('cn.keys', 'r') as f:
-        d = f.readlines()
-        api_id = d[0].strip()
-        api_key = d[1].strip()
-
-    parameters = {'app_key': api_key, 'app_id': api_id, 'pageSize': 1000, 'pageNum': 1}
-    complete_http_request_generators('cn.json', "https://api.data.charitynavigator.org/Organizations/",
-                                     params=parameters)
-    return
-
-
-if __name__ == "__main__":
-    test_http_request()
