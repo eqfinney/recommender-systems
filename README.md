@@ -1,8 +1,12 @@
-## Data Munging Practice Interviews
+## Recommender Systems
 Author: Emily Quinn Finney
 
 This is my exploration of recommender systems while attending the Recurse 
-Center (https://www.recurse.com/). It includes:
+Center (https://www.recurse.com/). The original code was written with the 
+intent of being tested on toy databases (charities_toydata.txt and 
+cat_food.txt). In the future, it will be implemented using data obtained
+from Charity Navigator (https://www.charitynavigator.org/). The package 
+includes:
 
 * api.py: code I used to access the Charity Navigator server using its API and 
 Python's requests package.
