@@ -8,6 +8,7 @@
 
 import api
 
+
 def test_complete_http_request_generators(filename='cn.json',
                                           url="https://api.data.charitynavigator.org/Organizations/"):
     """
@@ -19,7 +20,9 @@ def test_complete_http_request_generators(filename='cn.json',
         api_id = d[0].strip()
         api_key = d[1].strip()
 
-    parameters = {'app_key': api_key, 'app_id': api_id, 'pageSize': 1000,
-                  'pageNum': 1}
+    parameters = {'app_key': api_key, 'app_id': api_id, 'pageNum': 1, 'pageSize': 1000, 'rated': True}
     api.complete_http_request_generators(filename, url, params=parameters)
-    return
+
+
+if __name__ == '__main__':
+    test_complete_http_request_generators()
