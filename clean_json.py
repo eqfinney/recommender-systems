@@ -4,9 +4,6 @@
 #
 
 import json
-import sys
-sys.path.insert(0, '/home/equinney/github/web-scraping')
-import web_crawler_main_class as webs
 
 
 # TODO: better to just extract individual URLs?
@@ -54,27 +51,3 @@ def extract_keyword(json_list, keyword):
     print(keyword_list)
 
     return keyword_list
-
-
-def main():
-    cn_data = read_json('cn_old.json')
-    url_list = extract_keyword(cn_data, "charityNavigatorURL")
-    print(url_list)
-
-    import asyncio
-    import aiohttp
-
-    loop = asyncio.get_event_loop()
-
-    with aiohttp.ClientSession(loop=loop) as client_session:
-        cn_loader = webs.URLoader(url_list[0], client_session)
-        cn_scraper = webs.PageScraper(url_list[0], 'www.charitynavigator.org/index.cfm?bay', '(orgid|ein)=[0-9]*',
-                                      queue=url_list)
-        PrimaryScraper = webs.MainScraper(cn_loader, cn_scraper, 'cn_corpus.html')
-        loop.run_until_complete(PrimaryScraper.main())
-
-    loop.close()
-
-
-if __name__ == '__main__':
-    main()
