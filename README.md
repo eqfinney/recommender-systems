@@ -44,4 +44,4 @@ To run the hypothesis module, ensure pytest and hypothesis are installed. Then t
 pytest -v -s tests/test_hypothesis.py
 ```
 
-Last edited 10/24/2017
+Last edited 04/05/2018
