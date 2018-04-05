@@ -30,7 +30,6 @@ def test_decorator(function):
 
     return function_wrapper
 
-
 class Data:
 
     def __init__(self, filename, config_file=None):
